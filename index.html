@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Home - berkahbriquette</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      .bg-nav {
+    background-color: rgb(165, 87, 42);
+}
+
+.navbar-brand {
+    padding: 0; /* Menghapus padding agar tulisan ditempatkan lebih dekat */
+  }
+
+.navbar-text {
+    padding:0;
+    margin-bottom: 0.2rem; /* Sesuaikan margin-bottom sesuai kebutuhan */
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel img {
+    margin-top: 8%;
+    background-position: top;
+    background-size: auto;
+    width: 100%;
+    height: 500px;
+    animation: slide-in 1.5s ease;
+}
+
+.carousel-caption {
+    position: absolute;
+    text-align: left;
+    top: 25%;
+    left: 8%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fade-in 1.5s ease-in;
+  }
+
+@keyframes fade-in{
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+  
+@keyframes slide-in {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+
+  .carousel-caption h2{  
+    letter-spacing: 5px;
+    width: 60%;
+    background-color: rgb(255, 255, 255, 0.6);
+    color: #030303;
+  }
+.carousel h5{
+    font-weight: 600;
+    width: 60%;
+    background-color: rgb(255, 255, 255, 0.6);
+    color:rgb(165, 87, 42) ;
+}
+
+.about-me {
+  width:100%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translatex(-50px);
+  transition: opacity 0.5s, transform 1s;
+}
+
+.about-me.show {
+  opacity: 1;
+  transform: translatex(0);
+}
+
+.about-me img {
+  opacity: 0;
+  animation: slide-up-img 1s ease forwards 1.75s;
+}
+
+.about-me h3 {
+  opacity: 0;
+  letter-spacing: 5px;
+  width: 60%;
+  background-color: rgb(255, 255, 255, 0.6);
+  color:rgb(165, 87, 42) ;
+  animation: slide-up-h3 1s ease forwards 1s;
+}
+
+.about-me p {
+  opacity: 0;
+  width: 60%;
+  animation: slide-up-p 1s ease forwards 1.5s;
+}
+
+@keyframes slide-up-img {
+  0% {
+    opacity: 0;
+    transform: translateX(75px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-up-h3 {
+  0% {
+    opacity: 0;
+    transform: translateX(-75px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-up-p {
+  0% {
+    opacity: 0;
+    transform: translateX(75px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.gallery {
+  width:100%;
+  padding-top: 25px;
+  display: flex;
+  align-items: right;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translatey(75px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.gallery.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery h3 {
+  opacity: 0;
+  animation: slide-right-h3 1s ease forwards 0.75s;
+  text-align: center;
+  letter-spacing: 2px;
+  color:rgb(165, 87, 42) ;
+}
+
+.gallery p{
+  opacity: 0;
+  animation: slide-right-h3 1s ease forwards 1s;
+  text-align: center;
+}
+
+.gallery img{
+  opacity: 0;
+  animation: slide-right-img 1s ease forwards 1.75s;
+  height: 250px;
+  width: auto;
+  
+}
+
+.modal img{
+  height: auto;
+  width: 60%;
+
+}
+
+@keyframes slide-right-h3 {
+  0% {
+    opacity: 0;
+    transform: translatey(75px);
+  }
+  100% {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+
+@keyframes slide-right-img {
+  0% {
+    opacity: 0;
+    transform: translatey(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+
+.product,.product-spec,.team{
+  opacity: 0;
+  transform: translatey(75px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.product.show,.product-spec.show,.team.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product h3,.product-spec h3,.team h3 {
+  padding-top: 20px;
+  opacity: 0;
+  animation: slide-up-h3 1s ease forwards 0.75s;
+  text-align: center;
+  letter-spacing: 2px;
+  color:rgb(165, 87, 42) ;
+}
+
+.product h4,.product li,.product img,.product-spec h4,.product-spec li,.product-spec img,.team.card{
+  opacity: 0;
+  width: 60%;
+  animation: slide-up-product 1s ease forwards 1.5s;
+}
+
+@keyframes slide-up-h3 {
+  0% {
+    opacity: 0;
+    transform: translatex(75px);
+  }
+  100% {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+
+@keyframes slide-up-product {
+  0% {
+    opacity: 0;
+    transform: translatex(75px);
+  }
+  100% {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+
+
+.footer {
+  margin-top: 5%;
+  background-color: #9e825d; /* Warna abu-abu kecoklatan */
+  color: #fff;
+  padding: 30px 0;
+  width: 100%;
+}
+
+.footer img.logo {
+  height: 125px; /* Sesuaikan ukuran logo sesuai kebutuhan */
+}
+
+.footer address {
+  font-size: 14px;
+}
+
+.social-icons .social-icon {
+  font-size: 20px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+    </style>
+  </head>
+<body>
+    <nav class="navbar bg-gradient bg-nav navbar-dark font-weight-bolder fixed-top navbar-main navbar-expand-lg">
+        <div class="container">
+            <a href="" class="navbar-brand">
+                <img src="img/logo.png" alt="Avatar Logo" style="width: 100px;" class="rounded-pill">
+            </a>
+            <div class="d-flex flex-column">
+                <span class="navbar-text text-white h4 mb-0"><a href="">berkahbriquette</a></span>
+                <span class="text-md text-white">Best Briquette Supplier</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse float-end" id="collapsibleNavbar">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                </div>
+                <ul class="navbar-nav justify-content-end mx-5 text-lg text-uppercase px-4 font-weight-bolder" >
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" class="nav-link">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#product" class="nav-link">PRODUCTS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+        </ol>
+    
+        <!-- Slides -->
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <img src="img/briquette-bg.png" class="d-block" alt="Image 1">
+            <div class="carousel-caption">
+              <h2>THE BEST BRIQUETTE SUPPLIER<br>IN INDONESIA</h2>
+              <h5>Get Your Best Briquette Here in berkahbriquette</h5>
+            </div>
+          </div>
+    
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <img src="img/charcoal-bg.jpg" class="d-block" alt="Image 2">
+            <div class="carousel-caption">
+              <h2>THE WORLD'S BRIQUETTE PRODUCERS</h2>
+              <h5>Indonesia is one of the largest producers and exporters of coconut products, including coconut shells charcoal and briquettes.
+                Indonesia is the largest exporter of coconut charcoal briquettes, and the demand for these sustainable and eco-friendly products continues to rise worldwide.</h5>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+    <div class="container">
+      <div class="about-me col-md-12 px-5" id="about">
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+            <h3 class="font-weight-bolder text-uppercase">berkahbriquette IS A SUPPLIER OF THE BEST QUALITY briquettes IN INDONESIA</h3>
+            <p style="text-align:justify;">Briquette is a compressed block of coal dust or other combustible biomass material used for fuel and kindling to start a fire <br><br>
+              BERKAHBRIQUETTE is a company engaged in the production of charcoal briquettes and providing the best quality briquette products around the world
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img src="img/brick 1.png" style="width:500px" class="border img-fluid">
+          </div>
+        </div>
+      </div>
+      <div class="gallery col-md-12 px-4" id="gallery">
+        <h3 class="font-weight-bolder">OUR GALLERY</h3>
+        <p class="text-sm">You can see our gallery here, click to checkout our collections.
+          You can see our daily activity and products that exported to many countries and regions all over the world</p>
+        <!-- Portofolio Items -->
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Portofolio Item 1 -->
+            <div class="col"> 
+              <div class="card">
+                  <img src="img/1.jpg" class="card-img-top" alt="Image 1" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/1.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 2 -->
+            <div class="col">
+              <div class="card">
+                  <img src="img/2.jpg" class="card-img-top" alt="Image 2" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/2.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 3 -->
+            <div class="col">
+              <div class="card">
+                  <img src="img/3.jpg" class="card-img-top" alt="Image 3" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/3.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 4 -->
+            <div class="col">
+              <div class="card">
+                  <img src="img/4.jpg" class="card-img-top" alt="Image 4" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/4.jpg')">
+              </div>
+            </div>
+            <!-- Portofolio Item 5 -->
+            <div class="col"> 
+              <div class="card">
+                  <img src="img/5.jpg" class="card-img-top" alt="Image 5" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/5.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 6 -->
+            <div class="col">
+              <div class="card">
+                  <img src="img/6.jpg" class="card-img-top" alt="Image 6" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/6.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 7 -->
+            <div class="col">
+              <div class="card">
+                  <img src="img/7.jpg" class="card-img-top" alt="Image 7" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/7.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 8 -->
+            <div class="col">
+              <div class="card">
+                  <img src="img/8.jpg" class="card-img-top" alt="Image 8" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/8.jpg')">
+              </div>
+            </div> 
+            <!-- Portofolio Item 9 -->
+            <div class="col"> 
+              <div class="card">
+                  <img src="img/9.jpg" class="card-img-top" alt="Image 9" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/9.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 10 -->
+            <div class="col">
+              <div class="card">
+                <img src="img/10.jpg" class="card-img-top" alt="Image 10" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/10.jpg')">
+              </div>
+            </div>
+    
+            <!-- Portofolio Item 11 -->
+            <div class="col">
+              <div class="card">
+                <img src="img/11.png" class="card-img-top" alt="Image 11" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/11.png')">
+              </div>
+            </div>
+
+            <!-- Portofolio Item 12 -->
+            <div class="col">
+              <div class="card">
+                <img src="img/12.png" class="card-img-top" alt="Image 12" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('img/12.png')">
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Gallery-->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg text-center">
+        <div class="modal-body text-center">
+          <!-- Large image to display -->
+          <img src="" class="img-fluid img-hd" id="largeImage" alt="Large Image">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="product col-md-12 px-5" id="product">
+      <h3 class="font-weight-bolder">OUR PRODUCTS</h3>
+      <div class="row product-row" id="">
+        <div class="col-lg-8 pt-4 pt-lg-0 content d-flex flex-column justify-content-center">
+          <h4 class="font-weight-bolder text-uppercase">hexagonal bbq</h4>
+          <ul>
+            <li><span>BBQ MIX 50% COCONUT, 50% HARDWOOD (size on request)</span></li>
+            <li><span>BBQ 100% HARDWOOD (size on request)</span></li>
+          </ul>
+          <h4 class="font-weight-bolder text-uppercase">packaging</h4>
+          <ul>
+            <li><span>MASTER BOX 10 KG COLORED</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+          <img src="img/brick 1.png" style="width:500px" class="border img-fluid">
+        </div>
+      </div>
+      <hr>
+      <div class="row product-row" id="">
+        <div class="col-lg-8 pt-4 pt-lg-0 content d-flex flex-column justify-content-center">
+          <h4 class="font-weight-bolder text-uppercase">cube hookah for shisha</h4>
+          <ul>
+            <li><span>SUPER PREMIUM 100% COCONUT SHELL (ASH 2 - 2,3%) (size on request)</span></li>
+            <li><span>PREMIUM QUALITY 100% COCONUT SHELL(ASH 2,5%) (size on request)</span></li>
+            <li><span>MIX 80% COCONUT, 20% HARDWOOD (ASH 3%) (size on request).</span></li>
+          </ul>
+          <h4 class="font-weight-bolder text-uppercase">packaging</h4>
+          <ul>
+            <li><span>INNER PLASTIC, INNER BOX & MASTER BOX (FULL COLOR)</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+          <img src="img/brick 2.png" style="width:500px" class="border img-fluid">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="product-spec col-md-12 px-5" id="product">
+      <h3 class="font-weight-bolder">OUR PRODUCT SPECIFICATION</h3>
+      <div class="row product-row" id="">
+        <div class="col-lg-8 pt-4 pt-lg-0 content d-flex flex-column justify-content-center">
+          <h4 class="font-weight-bolder text-uppercase">hexagonal bbq</h4>
+          <ul>
+            <li><span>calorie : 7000 - 8000</span></li>
+            <li><span>Moisture 10 %</span></li>
+            <li><span>Ash Content : 3 - 5 %</span></li>
+            <li><span>Fixed Carbon : 85 %</span></li>
+            <li><span>Volatile Matter : 15%</span></li>
+            <li><span>Burning Time : 3 - 5 Hours</span></li>
+            <li><span>Full Container 20 ft : 18 Metric Tons</span></li>
+            <li><span>FOB</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+          <img src="img/hexspec.jpeg" style="width:500px" class="border img-fluid">
+        </div>
+      </div>
+      <hr>
+      <div class="row product-row" id="">
+
+        <div class="col-lg-8 pt-4 pt-lg-0 content d-flex flex-column justify-content-center">
+          <h4 class="font-weight-bolder text-uppercase">cube hookah for shisha</h4>
+          <ul>
+            <li><span>Calories : 7700 - 8000</span></li>
+            <li><span>No Smell & No Smoke</span></li>
+            <li><span>Moisture : 7 %</span></li>
+            <li><span>Ash Content : 2 - 2,5 %</span></li>
+            <li><span>Hardness 95 %</span></li>
+            <li><span>Volatile Matter : 13 %</span></li>
+            <li><span>Burning Time : 2 - 2,5 Hourss</span></li>
+            <li><span>20ft : 18-20 Metric tons</span></li>
+            <li><span>40ft : 26 tons</span></li>
+            <li><span>Packaging : 1 kg/Box = 72 Cubes</span></li>
+            <li><span>FOB</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+          <img src="img/sishaspec.jpeg" style="width:500px" class="border img-fluid">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="team col-md-12 px-5" id="team">
+      <h3 class="font-weight-bolder">OUR TEAM</h3>
+      <div class="row row-cols-1 row-cols-md-4 g-4 portfolio text-center justify-content-center">
+        <!-- Portofolio Item 1 -->
+        <div class="col fotografi"> 
+        <div class="card">
+            <img src="img/isep_m.png" class="card-img-top" alt="Image 1">
+            <div class="card-body">
+            <h5 class="card-title">Isep M</h5>
+            <p class="card-text">Founder of PT.Berkah Alam Royani</p>
+            </div>
+        </div>
+        </div>
+  
+        <!-- Portofolio Item 2 -->
+        <div class="col design">
+        <div class="card">
+            <img src="img/devi_ahmad.png" class="card-img-top" alt="Image 2">
+            <div class="card-body">
+            <h5 class="card-title">Devi Ahmad</h5>
+            <p class="card-text">Co-Founder of PT.Berkah Alam Royani</p>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <footer class="text-light py-4 footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-start">
+            <img src="img/logo.png" alt="Logo Brand" class="logo">
+          </div>
+          <div class="col-lg-6 text-end">
+            <address>
+              Jl. Karawang Kulon, Karawang Central, Sukabumi,<br>
+              West Java, Indonesia, 43151<br>
+            </address>
+                    <!-- Kontak -->
+              <div class="mb-4">
+                <a href="tel:+6282123528527"><i class="fa fa-phone me-2"></i>+62 821 2352 8527</a><br>
+                <a href="tel:+6282123528527"><i class="fab fa-whatsapp me-2"></i>+62 821 2352 8527</a><br>
+                <a href="mailto:pt.berkahalamroyani1@gmail.com"><i class="fa fa-envelope me-2"></i>pt.berkahalamroyani1@gmail.com</a>
+              </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/6282123528527" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+    <script>
+      function handleScroll() {
+    var about = document.querySelector('.about-me');
+    var aboutPosition = window.pageYOffset;
+    var windowHeight = window.innerHeight;
+
+    if (aboutPosition > (about.offsetTop - windowHeight + 100)) {
+      about.classList.add('show');
+    } else {
+      about.classList.remove('show');
+    }
+
+    var gallery = document.querySelector('.gallery');
+    var galleryPosition = window.pageYOffset;
+    var windowHeight = window.innerHeight;
+
+    if (galleryPosition > (gallery.offsetTop - windowHeight + 100)) {
+      gallery.classList.add('show');
+    } else {
+      gallery.classList.remove('show');
+    }
+
+    var product = document.querySelector('.product');
+    var productPosition = window.pageYOffset;
+    var windowHeight = window.innerHeight;
+
+    if (productPosition > (product.offsetTop - windowHeight + 100)) {
+      product.classList.add('show');
+    } else {
+      product.classList.remove('show');
+    }
+
+    var product = document.querySelector('.product-spec');
+    var productPosition = window.pageYOffset;
+    var windowHeight = window.innerHeight;
+
+    if (productPosition > (product.offsetTop - windowHeight + 100)) {
+      product.classList.add('show');
+    } else {
+      product.classList.remove('show');
+    }
+
+    var product = document.querySelector('.team');
+    var productPosition = window.pageYOffset;
+    var windowHeight = window.innerHeight;
+
+    if (productPosition > (product.offsetTop - windowHeight + 100)) {
+      product.classList.add('show');
+    } else {
+      product.classList.remove('show');
+    }
+
+  }
+
+window.addEventListener('scroll', handleScroll);
+
+function showImage(src) {
+  const largeImage = document.getElementById('largeImage');
+  largeImage.src = src;
+}
+    </script>
+</body>
+</html>
